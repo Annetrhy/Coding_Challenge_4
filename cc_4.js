@@ -60,3 +60,19 @@ for (let i = 1; i <= 3; i++) {
 
   console.log(`Customer ${i} total: $${total.toFixed(2)}`);
 }
+
+// Using for...in loop on one product after discounts are applied
+console.log("Logging single product with for...in:");
+for (const key in products[0]) {
+  console.log(key, ":", products[0][key]);
+}
+
+// Using object.entries and destructuring to log all product info after inventory is updated
+console.log("All products after inventory updates:");
+
+for (const product of products) {
+  for (const [key, value] of Object.entries(product)) {
+    console.log(`${key}: ${value}`);
+  }
+  console.log("----------");
+}
