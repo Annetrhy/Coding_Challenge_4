@@ -30,3 +30,33 @@ for (const product of products) {
 }
 
 console.log("After category discounts:", products);
+
+// Creating customer type discount
+let customerType = "student"; // try "senior" or "regular"
+let extraDiscount = 0;
+
+if (customerType === "student") {
+  extraDiscount = 0.05;
+} else if (customerType === "senior") {
+  extraDiscount = 0.07;
+} else {
+  extraDiscount = 0;
+}
+
+// Simulating checkout for 3 customers
+for (let i = 1; i <= 3; i++) {
+  let total = 0;
+
+  // Each customer buys one of each product
+  for (const product of products) {
+    if (product.inventory > 0) {
+      total += product.price;
+      product.inventory--; // reduce inventory
+    }
+  }
+
+  // Apply customer discount
+  total -= total * extraDiscount;
+
+  console.log(`Customer ${i} total: $${total.toFixed(2)}`);
+}
